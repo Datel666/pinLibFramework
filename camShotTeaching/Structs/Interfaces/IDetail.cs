@@ -8,7 +8,7 @@ namespace camShotTeaching.Structs.Interfaces
 {
     public interface IDetail
     {
-        List<double[]> Standarts { get; }
+        IList<double[]> Standarts { get; }
         string Name { get; }
     }
 }

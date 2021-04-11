@@ -11,14 +11,14 @@ namespace camShotTeaching.Training
 {
     public static class Details
     {
-        public static List<T> GetDetails<T>(string[] filesPath, TypeDetail type)
+        public static List<T> GetDetails<T>(string[] filesPath, TypeDetail type) where T : class
         {
             var details = new List<T>();
 
-            Parallel.ForEach(filesPath.OrderBy(s => s), file =>
+            foreach (var file in filesPath.OrderBy(s => s))
             {
                 details.Add((T)(object)GetDetail(file, type));
-            });
+            }
 
             return details;
         }
@@ -34,7 +34,7 @@ namespace camShotTeaching.Training
 
                 var resultK = new List<double[]>();
 
-                Parallel.ForEach(mas, item =>
+                foreach (var item in mas)
                 {
                     var masK = item.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
                     var k = new double[masK.Length];
@@ -45,7 +45,7 @@ namespace camShotTeaching.Training
                     }
 
                     resultK.Add(k);
-                });
+                }
 
                 return new Detail(resultK, info.Name, type);
             }

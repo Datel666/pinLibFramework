@@ -65,6 +65,7 @@ namespace camShotTeaching.Training.ActionsObject
 
                 }
 
+
                 Console.WriteLine("Выполнено!");
 
                 WriteResult(resultK, resultPath, details[i].Name);

@@ -10,12 +10,12 @@ namespace camShotTeaching.Structs
 {
     public struct Detail : IDetail, IDetailError
     {
-        private List<double[]> _standartsLearn;
+        private IList<double[]> _standartsLearn;
         private string _nameObject;
 
         private int _countError;
 
-        public List<double[]> Standarts => _standartsLearn.ToList();
+        public IList<double[]> Standarts => _standartsLearn.ToList();
         public string Name => _nameObject;
         public int CountError => _countError;
 

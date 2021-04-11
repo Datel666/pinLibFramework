@@ -32,7 +32,7 @@ namespace camShotTeaching.Training.ActionsObject
                 {
                     foreach (var standart in standarts)
                     {
-                        var value = MinValueDetail.GetMinValue(standart.Standarts, dt[j]);
+                        var value = (IValue)MinValueDetail.GetMinValue(standart.Standarts, dt[j]);
                         results.Add(value.MinValue);
                     }
 
