@@ -83,7 +83,25 @@ namespace camShotTeaching.Signs
 
         //ДОДЕЛАТЬ ВАРИАНТЫ
 
-        private static double[] ForOne(List<Point> points, int s0, int p0) { throw new NotImplementedException(); }
+        private static double[] ForOne(List<Point> points, int s0, int p0) 
+        {
+            var KT = CountingAlgoritm.CountPoints(points);
+
+            int k = KT.K;
+            int t = KT.T;
+
+            var m12 = (IMarking)PointMarking90.MarkContourPoints(points);
+            int m1 = m12.CountNegativeAngles;
+            int m2 = m12.CountPositiveAngles;
+
+            var m34 = (IMarking)PointMarking135.Build(points);
+            int m3 = m34.CountNegativeAngles;
+            int m4 = m34.CountPositiveAngles;
+
+            int zeroangled = k + t;
+
+            return new double[] { zeroangled, m1, m2, m3, m4 };
+        }
         private static double[] ForTwo(List<Point> points, int s0, int p0) { throw new NotImplementedException(); }
         private static double[] ForTree(List<Point> points, int s0, int p0)
         {

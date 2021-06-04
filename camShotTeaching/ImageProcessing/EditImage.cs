@@ -12,10 +12,25 @@ namespace camShotTeaching.ImageProcessing
 {
     public static class EditImage
     {
-        public static Image<Gray, byte> RotateImages(Image<Gray, byte> img, double angle) => img.Rotate(angle, new Gray(255));
-        public static Image<Gray, byte> ConvertToGray(Image<Bgr, byte> img) => img.Convert<Gray, byte>();
-        public static void FilterImage(Image<Gray, byte> img) => CvInvoke.MedianBlur(img, img, 3);
-        public static void BinarizationImages(Image<Gray, byte> img) => CvInvoke.Threshold(img, img, 150, 255, ThresholdType.Otsu);
+        public static Image<Gray, byte> RotateImages(Image<Gray, byte> img, double angle)
+        {
+            return img.Rotate(angle, new Gray(255));
+        }
+
+        public static Image<Gray, byte> ConvertToGray(Image<Bgr, byte> img)
+        {
+            return img.Convert<Gray, byte>();
+        }
+        public static Image<Gray, byte> FilterImage(Image<Gray, byte> img)
+        {
+            CvInvoke.MedianBlur(img, img, 3);
+            return img;
+        }
+        public static Image<Gray, byte> BinarizationImages(Image<Gray, byte> img)
+        {
+            CvInvoke.Threshold(img, img, 150, 255, ThresholdType.Otsu);
+            return img;
+        }
 
         public static Image<Gray, byte> DeleteTheBackground(Image<Gray, byte> img, Image<Gray, byte> bimg)
         {
